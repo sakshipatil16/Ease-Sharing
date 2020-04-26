@@ -25,7 +25,7 @@
 <a class="btn btn-info" href="{% url 'add_answer_to_post' pk=post.pk %}">Add Answer</a>
 <br>
 <br />
-{% for answer in post.answers.all %}
+{% for answer in post.answers.all reversed %}
 <div class="comment">
     <article class="media">
         <img class="rounded-circle mt-2 article-img" src="{{ answer.author.profile.image.url }}" />
@@ -37,7 +37,7 @@
                 <hr>
 
 
-                <p><h4>{{ answer.answer|linebreaks }}</h4></p>
+                <p>{{ answer.answer|linebreaks }}</p>
             </div>
         </div>
         </article>

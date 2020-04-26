@@ -1,0 +1,21 @@
+
+
+{% load static %}
+{% include 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<div class="container mt-5 mb-5">
+    <div class="card ">
+        <div class="content-section mt-3 mb-3 ml-3 mr-3">
+
+<form method="POST" class="post-form">
+    {% csrf_token %}
+    {{ form|crispy }}
+    <button type="submit" class="btn btn-info">Send</button>
+</form>
+</div>
+</div>
+
+</div>
+{% endblock %}

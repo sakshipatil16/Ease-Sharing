@@ -1,0 +1,21 @@
+
+{% load static %}
+{% include "base.html" %}
+<div class="container mt-5 mb-5">
+<div class="card ">
+    <div class="content-section mt-3 mb-3 ml-3 mr-3">
+        <form method="post">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <legend class=" border-bottom mb-4">Delete</legend>
+                <h2>Are you sure you want to delete {{ object.title }}</h2>
+            </fieldset>
+            <div class="form-group">
+                <button class="btn btn-danger" type="submit">Yes,Delete</button>
+                <a class="btn btn-secondary" href="{% url 'product' object.id %}">Cancel</a>
+            </div>
+           
+        </form>
+    </div>
+</div>
+</div>

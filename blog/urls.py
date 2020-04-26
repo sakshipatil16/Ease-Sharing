@@ -13,6 +13,7 @@ urlpatterns = [
    path('post/<int:pk>/answer/', views.add_answer_to_post, name='add_answer_to_post'),
    path('answer/<str:username>',UserAnswerListView.as_view(),name='user-answer'),
    path('prof/<int:pk>',views.prof,name='user-prof'),
+   
 ]
 
 

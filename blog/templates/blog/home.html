@@ -20,8 +20,8 @@
                     <small class="text-muted">{{ post.date_posted }}</small>
                     <p> Answers: {{ post.answers.count }}</p>
                 </div>
-                <h2><a class="article-title" href="{% url 'post-detail' post.id %}">{{ post.question }} </a></h2>
-                <p class="article-content">{{ post.subject }}</p>
+                <p><a class="article-title" href="{% url 'post-detail' post.id %}">{{ post.question }} </a></p>
+                <h5 class="article-content"> <span class="badge badge-info">subject: {{ post.subject }}</span></h5>
             </div>
         </article>
         {% endfor %}

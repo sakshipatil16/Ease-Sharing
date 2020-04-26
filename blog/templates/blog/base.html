@@ -24,51 +24,97 @@
     
     <link rel="stylesheet" type="text/css" href="{% static 'blog/main.css' %}" />
 
-    {% if title %}
-    <title>Django Blog-{{title}}</title>
-    {% else %}
-    <title>Django Blog</title>
-    {% endif %}
+
+    <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Knowledge Sharing Platform</title>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+ 
+  
+  <!-- Your custom styles (optional) -->
+  <link href="{% static 'css/style.min.css' %}" rel="stylesheet">
+
+    <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+  <!-- Bootstrap core CSS -->
+  
+    <title>Knowledge sharing platform</title>
+    <style type="text/css">
+        html,
+        body,
+        header,
+        .carousel {
+          height: 60vh;
+        }
+    
+        @media (max-width: 740px) {
+    
+          html,
+          body,
+          header,
+          .carousel {
+            height: 100vh;
+          }
+        }
+    
+        @media (min-width: 800px) and (max-width: 850px) {
+    
+          html,
+          body,
+          header,
+          .carousel {
+            height: 100vh;
+          }
+        }
+    
+      </style>  
 
 </head>
 <body >
 
-    <header class="site-header">
-        <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
-            <div class="container">
-                <a class="navbar-brand mr-4" href="{% url 'blog-home' %}">Knowledge Sharing Platform</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarToggle">
-                    <div class="navbar-nav mr-auto">
-                        <a class="nav-item nav-link" href="{% url 'blog-home' %}">Questions</a>
+    <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
+        <div class="container">
+            <a class="navbar-brand mr-4" href="{% url 'blog-home' %}"><i class="fas fa-graduation-cap"></i>  Knowledge Sharing Platform  </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarToggle">
+                <div class="navbar-nav mr-auto">
+                    <a class="nav-item nav-link abc" href="{% url 'blog-home' %}">Discussion <i class="fas fa-users" aria-hidden="true"></i> </a>
+  
+                </div>
+  
+                <!-- Navbar Right Side -->
+                <div class="navbar-nav">
+                    
+                    {% if user.is_authenticated %}
+                    <a class="nav-item nav-link abc" href="{% url 'post-create' %}">Ask<i class="fas fa-question"></i></a>
+  
+                    <a class="nav-item nav-link abc" href="{% url 'book_list' %}">Books <i class="fas fa-book"></i></a>
+  
+                    <a class="nav-item nav-link abc" href="{% url 'profile' %}">profile <i class="fas fa-user"></i></a>
+  
+                    
+  
+                    <a class="nav-item nav-link abc" href="{% url 'item_list' %}">Shop</a>
+                  
+                    <a class="nav-item nav-link abc" href="{% url 'logout' %}">Logout</a>
+                    {% else %}
+                  <a class="nav-item nav-link abc" href="{% url 'login' %}">Login <i class="fas fa-user"></i></a>
+                  <a class="nav-item nav-link abc" href="{% url 'register' %}">Register <i class="fas fa-user-plus"></i></a>
+                  {% endif%}
 
-                    </div>
-
-                    <!-- Navbar Right Side -->
-                    <div class="navbar-nav">
-                        {% if user.is_authenticated %}
-
-                        <a class="nav-item nav-link" href="{% url 'post-create' %}">Ask</a>
-
-                        <a class="nav-item nav-link" href="{% url 'book_list' %}">Books</a>
-
-                        <a class="nav-item nav-link" href="{% url 'profile' %}">profile</a>
-
-                        <a class="nav-item nav-link" href="{% url 'logout' %}">Logout</a>
-
-                        {% else %}
-                        <a class="nav-item nav-link" href="{% url 'login' %}">Login</a>
-                        <a class="nav-item nav-link" href="{% url 'register' %}">Register</a>
-                        {% endif%}
-
-                    </div>
+                   
+  
                 </div>
             </div>
-        </nav>
-    </header>
+        </div>
+    </nav>
+  
 
+    
 
    
 
@@ -76,7 +122,7 @@
 
 
 
-
+   
         <main role="main" class="container">
            
                     {% if messages %}
@@ -91,7 +137,7 @@
                 
         </main>
 
-       
+      
 
       
       

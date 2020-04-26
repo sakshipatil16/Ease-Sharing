@@ -24,8 +24,8 @@ from django.contrib.auth import views as auth_views
 from upload import views as upload_views
 from django.conf import settings
 from django.conf.urls.static import static
-
-
+from ecommerce import views as ecommerce_views
+from ecommerce.views import ItemDeleteView,  UserItemListView
 
 
 urlpatterns = [
@@ -38,6 +38,15 @@ urlpatterns = [
     path('profile/', user_views.profile, name='profile'),
     path('book/',upload_views.book_list,name='book_list'),
     path('book/upload',upload_views.upload_book,name='upload_book'),
+    path('item/',ecommerce_views.item_list,name='item_list'),
+    path('products/<int:pk>', ecommerce_views.ItemDetailView.as_view(template_name='product.html'),name='product'),
+    path('item/upload',ecommerce_views.upload_item,name='upload_item'),
+    path('item/<int:pk>/delete/',ItemDeleteView.as_view(template_name='item_confirm_delete.html'),name='item-delete'),
+   path('add_to_cart/<int:pk>/',ecommerce_views.add_to_cart,name='add_to_cart'),
+   path('remove_from_cart/<int:pk>/',ecommerce_views.remove_from_cart,name='remove_from_cart'),
+   path('order-summary/',ecommerce_views.OrderSummaryView.as_view(),name='order-summary'),
+    path('item/<int:pk>/comment/', ecommerce_views.add_comment_to_item, name='add_comment_to_item'),
+    path('item/<int:pk>',UserItemListView.as_view(),name='user-items'),
 ]
 
 if settings.DEBUG:

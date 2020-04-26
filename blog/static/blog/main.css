@@ -16,22 +16,31 @@ ul {
     margin: 0;
 }
 
-.bg-steel {
-    background-color: #4d6d8d;
-}
 
-.site-header .navbar-nav .nav-link {
-    color: #cbd5db;
-}
-
-    .site-header .navbar-nav .nav-link:hover {
-        color: #ffffff;
+    .bg-steel {
+        background-image: linear-gradient(to right ,#c33764,#1d2671);
     }
-
-    .site-header .navbar-nav .nav-link.active {
+    
+    .site-header .navbar-nav .nav-link {
+        color: #cbd5db;
+    }
+    
+        .site-header .navbar-nav .nav-link:hover {
+            color: #ffffff;
+        }
+        .site-header .navbar-nav .nav-link.active {
+            font-weight: 500;
+            
+    
+        }
+    .nav-item{
         font-weight: 500;
+        color: #b12424;
+    
     }
-
+    .abc{
+        color: #e9e9e9 !important ;
+    }
 .content-section {
     background: #ffffff;
     padding: 10px 20px;
@@ -94,9 +103,9 @@ a.article-title:hover {
 }
 
 .comment {
-    margin: 20px 0px 20px 20px;
-    border-left: 4px solid #f19191;
-    border-radius: 3px;
+    margin: 20px 0px 20px 60px;
+    border-left: 7px solid #f19191;
+    border-radius: 7px;
     border-bottom: 1px solid #e2dcdc;
     border-top: 1px solid #e2dcdc;
     border-right: 1px solid #e2dcdc;
@@ -106,17 +115,6 @@ a.article-title:hover {
 }
 
 
-.db-LoginBackground-gridContainer {
-    display: -ms-grid;
-    display: grid;
-    -ms-grid-columns: [start] 1fr [left-gutter] (86.6px)[16] [left-gutter] 1fr [end];
-    grid-template-columns: [start] 1fr [left-gutter] repeat(16,86.6px) [left-gutter] 1fr [end];
-    -ms-grid-rows: [top] 1fr [top-gutter] (64px)[8] [bottom-gutter] 1fr [bottom];
-    grid-template-rows: [top] 1fr [top-gutter] repeat(8,64px) [bottom-gutter] 1fr [bottom];
-    justify-content: center;
-    margin: 0 -2%;
-    transform: rotate(-12deg) skew(-12deg);
-}
 
 element.style {
     grid-area: top / start / 8 / end;

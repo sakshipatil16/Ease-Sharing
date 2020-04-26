@@ -1,0 +1,55 @@
+{% load static %}
+{% load cart_template_tags %}
+
+
+  <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
+      <div class="container">
+          <a class="navbar-brand mr-4" href="{% url 'blog-home' %}"><i class="fas fa-graduation-cap"></i>  Knowledge Sharing Platform  </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarToggle">
+              <div class="navbar-nav mr-auto">
+                  <a class="nav-item nav-link abc" href="{% url 'blog-home' %}">Discussion <i class="fas fa-users" aria-hidden="true"></i> </a>
+
+              </div>
+
+              <!-- Navbar Right Side -->
+              <div class="navbar-nav">
+                  {% if user.is_authenticated %}
+
+                  <a class="nav-item nav-link abc" href="{% url 'post-create' %}">Ask<i class="fas fa-question"></i></a>
+
+                  <a class="nav-item nav-link abc" href="{% url 'book_list' %}">Books <i class="fas fa-book"></i></a>
+
+                  <a class="nav-item nav-link abc" href="{% url 'profile' %}">profile <i class="fas fa-user"></i></a>
+
+                  <a class="nav-item nav-link abc" href="{% url 'upload_item' %}">Sell Material <i class="fas fa-shopping-bag"></i></a>
+
+                  <a class="nav-item nav-link abc" href="{% url 'item_list' %}">Shop</a>
+                  <li class="nav-item">
+
+                    <a href="{% url 'order-summary' %}" class="nav-link waves-effect">
+                      
+                      <i class="fas fa-shopping-cart"></i>
+                      <span class="clearfix d-none d-sm-inline-block"> Cart  </span>
+                      <span class="badge red z-depth-1 mr-1"> {{ request.user|cart_item_count }}</span>
+                    </a></li>
+                    <a class="nav-item nav-link abc" href="{% url 'logout' %}">Logout</a>
+                  {% else %}
+                  <a class="nav-item nav-link abc" href="{% url 'login' %}">Login <i class="fas fa-user"></i></a>
+                  <a class="nav-item nav-link abc" href="{% url 'register' %}">Register <i class="fas fa-user-plus"></i></a>
+                  
+                  {% endif%}
+
+              </div>
+          </div>
+      </div>
+  </nav>
+
+
+
+
+  <!-- Navbar -->
+
+  <!-- Navbar -->

@@ -1,0 +1,71 @@
+{% load static %}
+{% include "base.html" %}
+  <main>
+    <div class="container">
+
+      <div class="table-responsive">
+          <h2 class="ml-2">Order Summary</h2>
+          <div class="container mt-2 mb-5">
+            <div class="card ">
+                <div class="content-section mt-3 mb-3 ml-3 mr-3">
+  <table class="table dark-grey-text">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Item Title</th>
+        <th scope="col">Price</th>
+        
+         <th scope="col">Savings</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+        {% for order_item in object.items.all %}
+      <tr>
+        <th scope="row">{{forloop.counter}}</th>
+        <td><a href="{% url 'product' order_item.item.pk %}">{{ order_item.item.title }}</a></td>
+        <td>Rs. <del>{{ order_item.item.price }}</del>&nbsp{{ order_item.item.discount_price }}</td>
+        
+         
+        <td>
+            {% if order_item.item.discount_price %}
+            
+            (saving Rs. {{order_item.get_amount_saved}})
+            {% else %}
+           -
+            {% endif %}
+        </td>       
+      <td><a href="{% url 'remove_from_cart' order_item.item.pk %}"><i class="fas fa-trash pink-text"></i></a></td>
+           
+      </tr>
+        {% empty %}
+        <tr>
+            <td colspan="5"> Your Cart is Empty</td>
+        </tr>
+        {% endfor %}
+        {% if object.get_total %}
+        <tr>
+            <td colspan="4"><b>Order Total</b></td>
+            <td><strong>Rs. {{ object.get_total }}</strong></td>
+            
+        </tr>
+        <tr>
+             <td colspan="5"> 
+            
+            <a class="btn btn-primary float-right"  href="/item/">Continue shopping</a>
+            </td>
+        </tr>
+
+     {% endif %}
+    </tbody>
+  </table>
+</div>
+</div>
+</div>
+</div>
+     
+    </div>
+  </main>
+  <!--Main layout-->
+
+  

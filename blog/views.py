@@ -131,6 +131,7 @@ def prof(request,pk):
     totalposts= Post.objects.all()
     totalanswers= Answer.objects.all()
     user=User.objects.filter(pk=pk)
+    
     posts=Post.objects.filter(author__id=pk)
     answers=Answer.objects.filter(author__id=pk)
     context={

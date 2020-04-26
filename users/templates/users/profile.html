@@ -11,8 +11,7 @@
                             <h2 class="account-heading">
                                 {{user.username}}
                                 
-                                    <a href="{% url 'user-prof' user.id %}" class="btn btn-primary  active btn-lg ml-4">Your Activity</a>
-                               
+                                   
                                     </h2>
                             <p class="text-secondary">{{ user.email }}</p>
 
@@ -26,7 +25,9 @@
                             {{ p_form|crispy }}
                         </fieldset>
                         <div class="form-group">
-                            <button class="btn btn-outline-info" type="submit">Update</button>
+                            <button class="btn btn-info  btn-lg" type="submit">Update</button>
+                            <a href="{% url 'user-prof' user.id %}" class="btn btn-primary  active btn-lg ml-4 ">Your Activity</a>
+                            <a href="{% url 'user-items' user.id %}" class="btn btn-primary  active btn-lg  ml-4">track the item that you have posted</a>
                         </div>
 
                        

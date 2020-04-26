@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     # Add your apps here to enable them
     'blog.apps.BlogConfig',
+    'ecommerce.apps.EcommerceConfig',
     'users.apps.UsersConfig',
     'crispy_forms',
     'upload.apps.UploadConfig',
